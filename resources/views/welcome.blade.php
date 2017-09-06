@@ -79,7 +79,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    AVANZA
+                <img src="{{ asset('/img/avanza.png') }}">
+                    
                 </div>
 
             </div>
