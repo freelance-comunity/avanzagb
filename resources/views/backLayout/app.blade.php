@@ -25,17 +25,17 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="#">CRUD App</a>
+	            <a class="navbar-brand" href="#">GUARDA VALORES</a>
 	        </div>
 
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
-						<li><a href="{{ url('/auth/login') }}">Login</a></li>
-						<li><a href="{{ url('/auth/register') }}">Register</a></li>
+						<li><a href="{{ url('/auth/login') }}">INICIO DE SESIÓN</a></li>
+						<li><a href="{{ url('/auth/register') }}">REGISTRAR USUARIO</a></li>
 					@else
 						<li><a href="#">{{ Auth::user()->name }}</a></li>
-						<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+						<li><a href="{{ url('/auth/logout') }}">CERRAR SESIÓN</a></li>
 					@endif
 				</ul>
 			</div>
