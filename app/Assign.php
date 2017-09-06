@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Archive extends Model
+class Assign extends Model
 {
 
     /**
@@ -13,21 +13,21 @@ class Archive extends Model
      *
      * @var string
      */
-    protected $table = 'archives';
+    protected $table = 'assigns';
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['credit_id', 'client_id', 'group', 'product', 'client', 'start_date', 'brach', 'source_of_funding', 'status', 'archivist', 'drawer'];
+    protected $fillable = ['name', 'reason', 'date_assign', 'return_date', 'archive_id'];
 
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 
-    public function assign()
+    public function archive()
     {
-        return $this->hasOne('App\Assign');
+        return $this->belongsTo('App\Archive');
     }
 
 }

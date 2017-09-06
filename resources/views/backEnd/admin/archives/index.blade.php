@@ -15,7 +15,11 @@ EXPEDIENTES
         </thead>
         <tbody>
             @foreach($archives as $item)
+            @php
+            $assign = $item->assign;
+            @endphp
             @include('backEnd.admin.archives.assign')
+            @include('backEnd.admin.archives.assign_details')
             @include('backEnd.admin.archives.file')
             <tr>
                 <td>{{ $item->id }}</td>
@@ -29,36 +33,40 @@ EXPEDIENTES
                         ]) !!}
                         {!! Form::submit('ELIMINAR', ['class' => 'btn btn-danger btn-xs']) !!}
                         {!! Form::close() !!}
-                        <a data-toggle="modal" data-target="#assign" class="btn btn-info btn-xs">ASIGNAR</a>
-                        @if ($item->file == 'example.pdf')
-                            <a data-toggle="modal" data-target="#file_{{ $item->id }}" class="btn btn-warning btn-xs">SUBIR EXPEDIENTE LEGAL</a>
+                        @if (is_null($assign))
+                        <a data-toggle="modal" data-target="#assign_{{ $item->id }}" class="btn btn-info btn-xs">ASIGNAR</a>
                         @else
-                            <a href="{{ url('/download/') }}/{{ $item->id }}" class="btn btn-warning btn-xs"><i class="fa fa-file-pdf-o"></i> DESCARGAR</a>
+                        <a data-toggle="modal" data-target="#assign_details_{{ $item->id }}" class="btn btn-info btn-xs">VER ASIGNACIÓN</a>
                         @endif
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+                        @if ($item->file == 'example.pdf')
+                        <a data-toggle="modal" data-target="#file_{{ $item->id }}" class="btn btn-warning btn-xs">SUBIR EXPEDIENTE LEGAL</a>
+                        @else
+                        <a href="{{ url('/download/') }}/{{ $item->id }}" class="btn btn-warning btn-xs"><i class="fa fa-file-pdf-o"></i> DESCARGAR</a>
+                        @endif
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
-        @endsection
+    @endsection
 
-        @section('scripts')
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('#archives').DataTable({
-                    "language": {
-                      "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-                  },
-                  columnDefs: [{
-                    targets: [0],
-                    visible: false,
-                    searchable: false
-                },
-                ],
-                order: [[0, "asc"]],
-            });
-            });
-        </script>
-        @endsection
+    @section('scripts')
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#archives').DataTable({
+                "language": {
+                  "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+              },
+              columnDefs: [{
+                targets: [0],
+                visible: false,
+                searchable: false
+            },
+            ],
+            order: [[0, "asc"]],
+        });
+        });
+    </script>
+    @endsection
