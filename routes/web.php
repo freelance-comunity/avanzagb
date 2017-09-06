@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['web']], function () {
 	Route::resource('admin/archives', 'Admin\\ArchivesController');
 });
+
+Route::post('/import-excel', 'Admin\\ArchivesController@importArchives');

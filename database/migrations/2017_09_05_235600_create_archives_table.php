@@ -12,22 +12,24 @@ class CreateArchivesTable extends Migration
      */
     public function up()
     {
-        
-            Schema::create('archives', function(Blueprint $table) {
-                $table->increments('id');
-                $table->string('credit_id');
-$table->string('client_id');
-$table->string('group');
-$table->string('product');
-$table->string('client');
-$table->date('start_date');
-$table->string('brach');
-$table->string('source_of_funding');
 
-                $table->timestamps();
-                $table->softDeletes();
-            });
-            
+        Schema::create('archives', function(Blueprint $table) {
+            $table->increments('id');
+            $table->string('credit_id');
+            $table->string('client_id');
+            $table->string('group');
+            $table->string('product');
+            $table->string('client');
+            $table->date('start_date');
+            $table->string('brach');
+            $table->string('source_of_funding');
+            $table->string('status');
+            $table->string('archivist');
+            $table->string('drawer');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
     }
 
     /**

@@ -7,7 +7,8 @@
 	<title>@yield('title')</title>
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/flatly/bootstrap.min.css" rel="stylesheet">
-	<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+	<link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="{{ asset('/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 	<style>
 		body {
 			padding-top: 70px;
@@ -16,48 +17,48 @@
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
-	    <div class="container">
-	        <!-- Brand and toggle get grouped for better mobile display -->
-	        <div class="navbar-header">
-	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-	                <span class="sr-only">Toggle navigation</span>
-	                <span class="icon-bar"></span>
-	                <span class="icon-bar"></span>
-	                <span class="icon-bar"></span>
-	            </button>
-	            <a class="navbar-brand" href="#">GUARDA VALORES</a>
-	        </div>
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{{ url('admin/archives') }}">GUARDA VALORES</a>
+			</div>
 
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
-						<li><a href="{{ url('/auth/login') }}">INICIO DE SESIÓN</a></li>
-						<li><a href="{{ url('/auth/register') }}">REGISTRAR USUARIO</a></li>
+					<li><a href="{{ url('/auth/login') }}">INICIO DE SESIÓN</a></li>
+					<li><a href="{{ url('/auth/register') }}">REGISTRAR</a></li>
 					@else
-						<li><a href="#">{{ Auth::user()->name }}</a></li>
-						<li><a href="{{ url('/auth/logout') }}">CERRAR SESIÓN</a></li>
+					<li><a href="#">{{ Auth::user()->name }}</a></li>
+					<li> <a href="{{ route('logout') }}"
+						onclick="event.preventDefault();
+						document.getElementById('logout-form').submit();">
+						SALIR
+					</a></li>
+					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+						{{ csrf_field() }}
+					</form>
 					@endif
 				</ul>
 			</div>
 
-	    </div><!-- /.container-fluid -->
+		</div><!-- /.container-fluid -->
 	</nav>
 
 	<div class="container">
 		@yield('content')
 	</div>
-
-	<hr/>
-
-	<div class="container">
-	    &copy; {{ date('Y') }}. Created by <a href="http://www.rolandalla.com">Roland Alla</a>
-	    <br/>
-	</div>
-
 	<!-- Scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<!-- jQuery 2.1.4 -->
+	<script src="{{ asset('/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	<script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	@yield('scripts')
 </body>
 </html>

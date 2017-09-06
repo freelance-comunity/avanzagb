@@ -55,18 +55,38 @@ CREAR NUEVO EXPEDIENTE
 <div class="form-group {{ $errors->has('brach') ? 'has-error' : ''}}">
     {!! Form::label('brach', 'SUCURSAL: ', ['class' => 'col-sm-3 control-label']) !!}
     <div class="col-sm-6">
-        {!! Form::text('brach', null, ['class' => 'form-control', 'required' => 'required']) !!}
+        {!! Form::select('brach',['TUXTLA' => 'TUXTLA', 'SAN CRISTOBAL' => 'SAN CRISTOBAL', 'TABASCO' => 'TABASCO', 'TLAXCALA' => 'TLAXCALA', 'QUERETARO' => 'QUERETARO', 'TULA' => 'TULA', 'MISANTLA' => 'MISANTLA'], null, ['class' => 'form-control', 'required' => 'required']) !!}
         {!! $errors->first('brach', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 <div class="form-group {{ $errors->has('source_of_funding') ? 'has-error' : ''}}">
     {!! Form::label('source_of_funding', 'FUENTE DE FONDEO: ', ['class' => 'col-sm-3 control-label']) !!}
     <div class="col-sm-6">
-        {!! Form::text('source_of_funding', null, ['class' => 'form-control', 'required' => 'required']) !!}
+        {!! Form::select('source_of_funding', ['FINAFIM' => 'FINAFIM', 'FOMMUR' => 'FOMMUR', 'FINANCIERA NACIONAL' => 'FINANCIERA NACIONAL', 'ABC CAPITAL' => 'ABC CAPITAL', 'OTROS RECURSOS' => 'OTROS RECURSOS'], null, ['class' => 'form-control', 'required' => 'required']) !!}
         {!! $errors->first('source_of_funding', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
-
+<div class="form-group {{ $errors->has('status') ? 'has-error' : ''}}">
+    {!! Form::label('status', 'ESTATUS: ', ['class' => 'col-sm-3 control-label']) !!}
+    <div class="col-sm-6">
+        {!! Form::select('status',['EN RESGUARDO' => 'EN RESGUARDO', 'ASIGNADO' => 'ASIGNADO'], null, ['class' => 'form-control', 'required' => 'required']) !!}
+        {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+<div class="form-group {{ $errors->has('archivist') ? 'has-error' : ''}}">
+    {!! Form::label('archivist', 'ARCHIVERO: ', ['class' => 'col-sm-3 control-label']) !!}
+    <div class="col-sm-6">
+        {!! Form::text('archivist', null, ['class' => 'form-control', 'required' => 'required']) !!}
+        {!! $errors->first('archivist', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+<div class="form-group {{ $errors->has('drawer') ? 'has-error' : ''}}">
+    {!! Form::label('drawer', 'CAJÓN: ', ['class' => 'col-sm-3 control-label']) !!}
+    <div class="col-sm-6">
+        {!! Form::text('drawer', null, ['class' => 'form-control', 'required' => 'required']) !!}
+        {!! $errors->first('drawer', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
 
 <div class="form-group">
     <div class="col-sm-offset-3 col-sm-3">

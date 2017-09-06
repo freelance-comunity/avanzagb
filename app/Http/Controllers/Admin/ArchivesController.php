@@ -9,6 +9,7 @@ use App\Archive;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
+use \Excel;
 
 class ArchivesController extends Controller
 {
@@ -42,7 +43,7 @@ class ArchivesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['credit_id' => 'required', 'client_id' => 'required', 'group' => 'required', 'product' => 'required', 'client' => 'required', 'start_date' => 'required', 'brach' => 'required', 'source_of_funding' => 'required', ]);
+        $this->validate($request, ['credit_id' => 'required', 'client_id' => 'required', 'group' => 'required', 'product' => 'required', 'client' => 'required', 'start_date' => 'required', 'brach' => 'required', 'source_of_funding' => 'required', 'status' => 'required', 'archivist' => 'required', 'drawer' => 'required' ]);
 
         Archive::create($request->all());
 
@@ -89,7 +90,7 @@ class ArchivesController extends Controller
      */
     public function update($id, Request $request)
     {
-        $this->validate($request, ['credit_id' => 'required', 'client_id' => 'required', 'group' => 'required', 'product' => 'required', 'client' => 'required', 'start_date' => 'required', 'brach' => 'required', 'source_of_funding' => 'required', ]);
+        $this->validate($request, ['credit_id' => 'required', 'client_id' => 'required', 'group' => 'required', 'product' => 'required', 'client' => 'required', 'start_date' => 'required', 'brach' => 'required', 'source_of_funding' => 'required','status' => 'required','archivist' => 'required', 'drawer' => 'required' ]);
 
         $archive = Archive::findOrFail($id);
         $archive->update($request->all());
@@ -114,6 +115,39 @@ class ArchivesController extends Controller
         $archive->delete();
 
         Session::flash('message', 'Archive deleted!');
+        Session::flash('status', 'success');
+
+        return redirect('admin/archives');
+    }
+
+    public function importArchives(Request $request)
+    {   
+        $this->validate($request, ['exel' => 'required|mimes:xls']);
+
+        \Excel::load($request->excel, function($reader) {
+
+            $excel = $reader->get();
+
+            //iteración
+            $reader->each(function($row) {
+                $archive = new archive;
+                $archive->credit_id = $row->credit_id;
+                $archive->client_id = $row->client_id;
+                $archive->group = $row->group;
+                $archive->product = $row->product;
+                $archive->client = $row->client;
+                $archive->start_date = $row->start_date;
+                $archive->brach = $row->brach;
+                $archive->source_of_funding = $row->source_of_funding;
+                $archive->status = $row->status;
+                $archive->archivist = $row->archivist;
+                $archive->drawer = $row->drawer;
+                $archive->save();
+            });
+
+        });
+
+        Session::flash('message', 'Archive added!');
         Session::flash('status', 'success');
 
         return redirect('admin/archives');

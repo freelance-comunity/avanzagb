@@ -20,7 +20,7 @@ class Archive extends Model
      *
      * @var array
      */
-    protected $fillable = ['credit_id', 'client_id', 'group', 'product', 'client', 'start_date', 'brach', 'source_of_funding'];
+    protected $fillable = ['credit_id', 'client_id', 'group', 'product', 'client', 'start_date', 'brach', 'source_of_funding', 'status', 'archivist', 'drawer'];
 
     use SoftDeletes;
     protected $dates = ['deleted_at'];
