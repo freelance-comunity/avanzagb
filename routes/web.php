@@ -24,3 +24,7 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 Route::post('/import-excel', 'Admin\\ArchivesController@importArchives');
+
+Route::post('/import-file', 'Admin\\ArchivesController@importFile');
+
+Route::get('/download/{id}', 'Admin\\ArchivesController@getDownload');

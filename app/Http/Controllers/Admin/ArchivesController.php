@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
 use \Excel;
+use Illuminate\Http\Response;
 
 class ArchivesController extends Controller
 {
@@ -122,7 +123,7 @@ class ArchivesController extends Controller
 
     public function importArchives(Request $request)
     {   
-        $this->validate($request, ['exel' => 'required|mimes:xls']);
+        //$this->validate($request, ['exel' => 'required|mimes:xls']);
 
         \Excel::load($request->excel, function($reader) {
 
@@ -151,6 +152,35 @@ class ArchivesController extends Controller
         Session::flash('status', 'success');
 
         return redirect('admin/archives');
+    }
+
+    public function importFile(Request $request)
+    {   
+        $id = $request->input('archive_id');
+        $archive = Archive::findOrFail($id);
+
+        if ($file = $request->hasFile('file')) {
+            $file = $request->file('file');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path() . '/uploads/documents';
+            $file->move($destinationPath, $filename);
+        }
+
+        $archive->file = $filename;
+        $archive->save();
+        
+        
+        return "listo";
+    }
+
+    public function getDownload($id)
+    {
+
+        //PDF file is stored under project/public/download/info.pdf
+        $archive = Archive::findOrFail($id);
+        $file= public_path(). "/uploads/documents/".$archive->file;   
+
+        return response()->download($file);
     }
 
 }

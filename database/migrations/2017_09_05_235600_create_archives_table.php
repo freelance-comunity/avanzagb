@@ -26,6 +26,7 @@ class CreateArchivesTable extends Migration
             $table->string('status');
             $table->string('archivist');
             $table->string('drawer');
+            $table->string('file')->default('example.pdf');
             $table->timestamps();
             $table->softDeletes();
         });

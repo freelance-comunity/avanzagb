@@ -5,7 +5,7 @@ EDITAR EXPEDIENTE
 
 @section('content')
 
-<h1>Edit Archive</h1>
+<h1>EDITAR EXPEDIENTE</h1>
 <hr/>
 
 {!! Form::model($archive, [

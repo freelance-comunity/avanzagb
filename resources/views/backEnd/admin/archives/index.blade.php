@@ -15,6 +15,8 @@ EXPEDIENTES
         </thead>
         <tbody>
             @foreach($archives as $item)
+            @include('backEnd.admin.archives.assign')
+            @include('backEnd.admin.archives.file')
             <tr>
                 <td>{{ $item->id }}</td>
                 <td><a href="{{ url('admin/archives', $item->id) }}">{{ $item->credit_id }}</a></td><td>{{ $item->client_id }}</td><td>{{ $item->group }}</td><td>{{ $item->status }}</td>
@@ -27,13 +29,12 @@ EXPEDIENTES
                         ]) !!}
                         {!! Form::submit('ELIMINAR', ['class' => 'btn btn-danger btn-xs']) !!}
                         {!! Form::close() !!}
-                        {!! Form::open([
-                            'method'=>'DELETE',
-                            'url' => ['admin/archives', $item->id],
-                            'style' => 'display:inline'
-                            ]) !!}
-                            {!! Form::submit('ASIGNAR', ['class' => 'btn btn-warning btn-xs']) !!}
-                            {!! Form::close() !!}
+                        <a data-toggle="modal" data-target="#assign" class="btn btn-info btn-xs">ASIGNAR</a>
+                        @if ($item->file == 'example.pdf')
+                            <a data-toggle="modal" data-target="#file_{{ $item->id }}" class="btn btn-warning btn-xs">SUBIR EXPEDIENTE LEGAL</a>
+                        @else
+                            <a href="{{ url('/download/') }}/{{ $item->id }}" class="btn btn-warning btn-xs"><i class="fa fa-file-pdf-o"></i> DESCARGAR</a>
+                        @endif
                         </td>
                     </tr>
                     @endforeach
