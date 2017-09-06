@@ -32,3 +32,7 @@ Route::get('/download/{id}', 'Admin\\ArchivesController@getDownload');
 Route::group(['middleware' => ['web']], function () {
 	Route::resource('admin/assigns', 'Admin\\AssignsController');
 });
+
+Route::get('api/archives', function(){
+	return Datatables::eloquent(App\Archive::query())->make(true);
+});

@@ -56,6 +56,15 @@ EXPEDIENTES
     <script type="text/javascript">
         $(document).ready(function(){
             $('#archives').DataTable({
+                /*"processing": true,
+                "serverSide": true,
+                "ajax": "/api/archives",
+                "columns":[
+                    {data: 'credit_id'},
+                    {data: 'client_id'}.
+                    {data: 'group'},
+                    {data: 'status'},
+                ],*/
                 "language": {
                   "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
               },

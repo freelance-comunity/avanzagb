@@ -186,6 +186,9 @@ return [
         //Laravel Excel
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
+        //Datatables
+        Yajra\DataTables\DataTablesServiceProvider::class,
+
     ],
 
     /*
@@ -241,6 +244,9 @@ return [
 
         //Laravel Excel
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+
+        //Datatables
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
     ],
 

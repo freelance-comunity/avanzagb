@@ -11,6 +11,8 @@ use Carbon\Carbon;
 use Session;
 use \Excel;
 use Illuminate\Http\Response;
+use Yajra\Datatables\Facades\Datatables;
+
 
 class ArchivesController extends Controller
 {
