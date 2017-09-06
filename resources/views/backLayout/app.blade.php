@@ -26,7 +26,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ url('admin/archives') }}">GUARDA VALORES</a>
+				<a class="navbar-brand" href="{{ url('home') }}">GUARDA VALORES</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
@@ -36,6 +36,7 @@
 					<li><a href="{{ url('/auth/register') }}">REGISTRAR</a></li>
 					@else
 					<li><a href="#">{{ Auth::user()->name }}</a></li>
+					<li><a href="{{ url('admin/archives') }}">EXPEDIENTES</a></li>
 					<li> <a href="{{ route('logout') }}"
 						onclick="event.preventDefault();
 						document.getElementById('logout-form').submit();">
