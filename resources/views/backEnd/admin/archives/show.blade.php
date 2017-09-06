@@ -21,6 +21,11 @@ EXPEDIENTE
             </tr>
         </tbody>    
     </table>
+    @if ($archive->file == 'example.pdf')
+        <h3>Expediente digital no disponible.</h3>
+    @else
+    <embed src="{{ asset('/uploads/documents/') }}/{{ $archive->file }}" width="100%" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+    @endif
 </div>
 
 @endsection
