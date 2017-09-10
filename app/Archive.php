@@ -25,6 +25,10 @@ class Archive extends Model
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 
+    public function GetArchives() {
+        return response()->json(['Data' => \App\Archive::all()]);
+    }
+
     public function assign()
     {
         return $this->hasOne('App\Assign');

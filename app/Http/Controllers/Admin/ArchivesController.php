@@ -33,6 +33,7 @@ class ArchivesController extends Controller
         $archives = Archive::all();
 
         return view('backEnd.admin.archives.index', compact('archives'));
+        
     }
 
     /**
@@ -131,7 +132,7 @@ class ArchivesController extends Controller
 
     public function importArchives(Request $request)
     {   
-        //$this->validate($request, ['exel' => 'required|mimes:xls']);
+        $this->validate($request, ['excel' => 'required']);
 
         \Excel::load($request->excel, function($reader) {
 
@@ -156,14 +157,16 @@ class ArchivesController extends Controller
 
         });
 
-        Session::flash('message', 'Archive added!');
+        Session::flash('message', '¡Expedientes cargados exitosamente!');
         Session::flash('status', 'success');
 
         return redirect('admin/archives');
     }
 
     public function importFile(Request $request)
-    {   
+    {    
+        $this->validate($request, ['file' => 'required|file']);
+
         $id = $request->input('archive_id');
         $archive = Archive::findOrFail($id);
 
