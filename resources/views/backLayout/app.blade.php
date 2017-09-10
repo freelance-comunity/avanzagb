@@ -33,7 +33,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
 					<li><a href="{{ url('/auth/login') }}">INICIO DE SESIÓN</a></li>
-					<li><a href="{{ url('/auth/register') }}">REGISTRAR</a></li>
+					<li><a href="{{ url('/register') }}">REGISTRAR</a></li>
 					@else
 					<li><a href="#">{{ Auth::user()->name }}</a></li>
 					<li><a href="{{ url('admin/archives') }}">EXPEDIENTES</a></li>
