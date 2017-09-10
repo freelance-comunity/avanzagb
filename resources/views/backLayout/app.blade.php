@@ -32,7 +32,7 @@
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
-					<li><a href="{{ url('/auth/login') }}">INICIO DE SESIÓN</a></li>
+					<li><a href="{{ url('/login') }}">INICIO DE SESIÓN</a></li>
 					<li><a href="{{ url('/register') }}">REGISTRAR</a></li>
 					@else
 					<li><a href="#">{{ Auth::user()->name }}</a></li>
