@@ -178,7 +178,7 @@ class ArchivesController extends Controller
         $archive->save();
         
         
-        Session::flash('message', '¡Archivo Excel cargado exitosamente!');
+        Session::flash('message', '¡Archivo cargado exitosamente!');
         Session::flash('status', 'success');
 
         return redirect('admin/archives');

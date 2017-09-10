@@ -55,14 +55,14 @@ class AssignsController extends Controller
 
         Assign::create($request->all());
 
-        Session::flash('message', 'Assign added!');
+        Session::flash('message', '¡Expediente asignado!');
         Session::flash('status', 'success');
         
         $archive = Archive::findOrFail($id);
         $archive->status = 'ASIGNADO';
         $archive->save();
 
-        return redirect('admin/assigns');
+        return redirect('admin/archives');
     }
 
     /**

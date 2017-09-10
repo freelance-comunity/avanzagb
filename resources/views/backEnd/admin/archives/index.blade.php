@@ -46,8 +46,6 @@ EXPEDIENTES
                         @endif
                         @if ($item->file == 'example.pdf')
                         <a data-toggle="modal" data-target="#file_{{ $item->id }}" class="btn btn-warning btn-xs">SUBIR EXPEDIENTE LEGAL</a>
-                        @else
-                        <a href="{{ url('/download/') }}/{{ $item->id }}" class="btn btn-warning btn-xs"><i class="fa fa-file-pdf-o"></i> DESCARGAR</a>
                         @endif
                     </td>
                 </tr>
