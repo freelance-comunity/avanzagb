@@ -56,7 +56,7 @@ class ArchivesController extends Controller
 
         Archive::create($request->all());
 
-        Session::flash('message', 'Archive added!');
+        Session::flash('message', '¡Expediente creado exitosamente!');
         Session::flash('status', 'success');
 
         return redirect('admin/archives');
@@ -104,7 +104,7 @@ class ArchivesController extends Controller
         $archive = Archive::findOrFail($id);
         $archive->update($request->all());
 
-        Session::flash('message', 'Archive updated!');
+        Session::flash('message', '¡Expediente actualizado exitosamente!');
         Session::flash('status', 'success');
 
         return redirect('admin/archives');
@@ -123,7 +123,7 @@ class ArchivesController extends Controller
 
         $archive->delete();
 
-        Session::flash('message', 'Archive deleted!');
+        Session::flash('message', '¡Expediente eliminado exitosamente!');
         Session::flash('status', 'success');
 
         return redirect('admin/archives');
@@ -178,7 +178,10 @@ class ArchivesController extends Controller
         $archive->save();
         
         
-        return "listo";
+        Session::flash('message', '¡Archivo Excel cargado exitosamente!');
+        Session::flash('status', 'success');
+
+        return redirect('admin/archives');
     }
 
     public function getDownload($id)

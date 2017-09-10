@@ -4,6 +4,12 @@ EXPEDIENTES
 @stop
 
 @section('content')
+@if(session()->has('message'))
+<div class="alert alert-success alert-dismissable">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {{ session()->get('message') }}
+</div>
+@endif
 @include('backEnd.admin.archives.charge_excel')
 <h1>Expedientes <div class="btn-group"><a href="{{ url('admin/archives/create') }}" class="btn btn-primary pull-right btn-sm">CREAR NUEVO</a> <a data-toggle="modal" data-target="#charge_excel" class="btn btn-info pull-right btn-sm"><i class="fa fa-file-excel-o" aria-hidden="true"></i> CARGAR EXCEL</a></div> </h1>
 <div class="table table-responsive">
@@ -64,18 +70,18 @@ EXPEDIENTES
                     {data: 'client_id'}.
                     {data: 'group'},
                     {data: 'status'},
-                ],*/
-                "language": {
-                  "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-              },
-              columnDefs: [{
-                targets: [0],
-                visible: false,
-                searchable: false
-            },
-            ],
-            order: [[0, "asc"]],
-        });
+                    ],*/
+                    "language": {
+                      "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+                  },
+                  columnDefs: [{
+                    targets: [0],
+                    visible: false,
+                    searchable: false
+                },
+                ],
+                order: [[0, "asc"]],
+            });
         });
     </script>
     @endsection
