@@ -62,7 +62,7 @@ class AssignsController extends Controller
         $archive->status = 'ASIGNADO';
         $archive->save();
 
-        return redirect('admin/archives');
+        return redirect()->back();
     }
 
     /**

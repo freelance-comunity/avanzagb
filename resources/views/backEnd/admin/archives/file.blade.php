@@ -12,7 +12,7 @@
   }
 </script>
 
-<div class="modal fade" id="file_{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="file_{{ $archive->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -25,7 +25,7 @@
         <form method="post" action="{{url('import-file')}}" enctype="multipart/form-data">
           {{csrf_field()}}
           <input type="file" name="file" onchange="checkfile(this);" class="form-control">
-          <input type="hidden" name="archive_id" value="{{ $item->id }}">
+          <input type="hidden" name="archive_id" value="{{ $archive->id }}">
           <br><br>
           <input type="submit" value="CARGAR" class="btn btn-block btn-lg btn-success">
         </form>

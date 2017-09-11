@@ -11,7 +11,7 @@ use Carbon\Carbon;
 use Session;
 use \Excel;
 use Illuminate\Http\Response;
-use Yajra\Datatables\Facades\Datatables;
+use Yajra\DataTables\DataTables;
 
 
 class ArchivesController extends Controller
@@ -30,9 +30,10 @@ class ArchivesController extends Controller
 
     public function index()
     {
-        $archives = Archive::all();
+        /*$archives = Archive::all();
+        return Datatables::of($archives)->make(true);*/
 
-        return view('backEnd.admin.archives.index', compact('archives'));
+        return view('backEnd.admin.archives.index');
         
     }
 
@@ -184,7 +185,7 @@ class ArchivesController extends Controller
         Session::flash('message', '¡Archivo cargado exitosamente!');
         Session::flash('status', 'success');
 
-        return redirect('admin/archives');
+        return redirect()->back();
     }
 
     public function getDownload($id)

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Yajra\Datatables\Services\DataTable;
 
 class Archive extends Model
 {

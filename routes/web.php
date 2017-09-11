@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Auth::routes();
@@ -34,5 +34,14 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 Route::get('api/archives', function(){
-	return Datatables::eloquent(App\Archive::query())->make(true);
+
+	$archives = App\Archive::select(['id', 'client_id', 'credit_id', 'group', 'status']);
+
+	return Datatables::of($archives)
+            ->addColumn('actions', function ($archive) {
+                return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+            })->rawColumns(['actions'])
+            ->make(true);       
+
+	//return Datatables::eloquent(App\Archive::query())->make(true);
 });

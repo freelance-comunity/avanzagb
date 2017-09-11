@@ -11,7 +11,8 @@
         "laravelcollective/html": "^5.4.0",
         "maatwebsite/excel": "~2.1.0",
         "roland/crud": "dev-master",
-        "yajra/laravel-datatables-oracle": "~8.0"
+        "yajra/laravel-datatables-buttons": "^3.0",
+        "yajra/laravel-datatables-oracle": "8.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

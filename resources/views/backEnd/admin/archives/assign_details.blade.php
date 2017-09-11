@@ -1,4 +1,4 @@
-<div class="modal fade" id="assign_details_{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="assign_details_{{ $archive->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -12,7 +12,7 @@
         {!! Form::label('name', 'NOMBRE COMPLETO: ', ['class' => 'col-sm-3 control-label']) !!}
           <div class="col-sm-6">
             <p>
-              {{ $item->assign['name'] }}
+              {{ $archive->assign['name'] }}
             </p>
           </div>
           <br>
@@ -23,7 +23,7 @@
         {!! Form::label('name', 'MOTIVO: ', ['class' => 'col-sm-3 control-label']) !!}
           <div class="col-sm-6">
             <p>
-              {{ $item->assign['reason'] }}
+              {{ $archive->assign['reason'] }}
             </p>
           </div>
           <br>
@@ -34,7 +34,7 @@
         {!! Form::label('name', 'FECHA DE ASIGNACIÓN: ', ['class' => 'col-sm-3 control-label']) !!}
           <div class="col-sm-6">
             <p>
-              {{ $item->assign['date_assign'] }}
+              {{ $archive->assign['date_assign'] }}
             </p>
           </div>
           <br>
@@ -45,7 +45,7 @@
         {!! Form::label('name', 'FECHA DE DEVOLUCIÓN: ', ['class' => 'col-sm-3 control-label']) !!}
           <div class="col-sm-6">
             <p>
-              {{ $item->assign['return_date'] }}
+              {{ $archive->assign['return_date'] }}
             </p>
           </div>
           <br>

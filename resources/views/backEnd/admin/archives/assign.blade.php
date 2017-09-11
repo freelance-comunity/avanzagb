@@ -1,4 +1,4 @@
-<div class="modal fade" id="assign_{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="assign_{{ $archive->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -22,7 +22,7 @@
           <div class="form-group">
             <input type="date" name="return_date" class="form-control">
           </div>
-          <input type="hidden" name="archive_id" value="{{ $item->id }}">
+          <input type="hidden" name="archive_id" value="{{ $archive->id }}">
           <input type="submit" value="ASIGNAR" class="btn btn-block btn-lg btn-success">
         {!! Form::close() !!}
       </div>

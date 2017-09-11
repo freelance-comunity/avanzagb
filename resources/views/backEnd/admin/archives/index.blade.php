@@ -25,9 +25,10 @@ EXPEDIENTES
     <table class="table table-bordered table-striped table-hover" id="archives">
         <thead>
             <tr>
-                <th>ID</th><th>ID CRÉDITO</th><th>ID CLIENTE</th><th>GRUPO</th><th>ESTATUS</th><th>ACCIÓN</th>
+                <th>NO. EXPEDIENTE</th><th>ID CLIENTE</th><th>ID CRÉDITO</th><th>GRUPO</th><th>ESTATUS</th><th>ACCIÓN</th>
             </tr>
         </thead>
+        {{--  
         <tbody>
             @foreach($archives as $item)
             @php
@@ -38,7 +39,12 @@ EXPEDIENTES
             @include('backEnd.admin.archives.file')
             <tr>
                 <td>{{ $item->id }}</td>
-                <td><a href="{{ url('admin/archives', $item->id) }}">{{ $item->credit_id }}</a></td><td>{{ $item->client_id }}</td><td>{{ $item->group }}</td><td>{{ $item->status }}</td>
+                <td>
+                    <a href="{{ url('admin/archives', $item->id) }}">{{ $item->client_id }}</a>
+                </td>
+                <td>{{ $item->credit_id }}</td>
+                <td>{{ $item->group }}</td>
+                <td>{{ $item->status }}</td>
                 <td>
                     <a href="{{ url('admin/archives/' . $item->id . '/edit') }}" class="btn btn-primary btn-xs">ACTUALIZAR</a> 
                     {!! Form::open([
@@ -60,6 +66,12 @@ EXPEDIENTES
                 </tr>
                 @endforeach
             </tbody>
+            --}}
+            <tfoot>
+                <tr>
+                    <th>NO. EXPEDIENTE</th><th>ID CLIENTE</th><th>ID CRÉDITO</th><th>GRUPO</th><th>ESTATUS</th><th>ACCIÓN</th>
+                </tr>
+            </tfoot>
         </table>
     </div>
 
@@ -69,26 +81,28 @@ EXPEDIENTES
     <script type="text/javascript">
         $(document).ready(function(){
             $('#archives').DataTable({
-                /*"processing": true,
+                "processing": true,
                 "serverSide": true,
-                "ajax": "/api/archives",
+                "ajax": "{{ url('api/archives') }}",
                 "columns":[
-                    {data: 'credit_id'},
-                    {data: 'client_id'}.
-                    {data: 'group'},
-                    {data: 'status'},
-                    ],*/
-                    "language": {
-                      "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-                  },
-                  columnDefs: [{
-                    targets: [0],
-                    visible: false,
-                    searchable: false
-                },
+                {data: 'id', name: 'id'},
+                {data: 'client_id', name: 'client_id' },
+                {data: 'credit_id', name: 'credit_id'},
+                {data: 'group', name: 'group'},
+                {data: 'status', name: 'status'},
+                {data: 'actions', name: 'actions', orderable: false, searchable: false},
                 ],
-                order: [[0, "asc"]],
-            });
+                "language": {
+                  "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+              },
+              columnDefs: [{
+                targets: [0],
+                visible: false,
+                searchable: false
+            },
+            ],
+            order: [[0, "asc"]],
+        });
         });
     </script>
     @endsection
