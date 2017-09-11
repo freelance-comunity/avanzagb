@@ -198,4 +198,22 @@ class ArchivesController extends Controller
         return response()->download($file);
     }
 
+    public function returnArchive(Request $request)
+    {   
+        $id = $request->input('archive_id');
+        $archive = Archive::findOrFail($id);
+        $assign = $archive->assign;
+
+        $archive->status = "EN RESGUARDO";
+        $archive->save();
+
+        //$assign->status = "RECEPCIONADO";
+        $assign->delete();
+
+        Session::flash('message', '¡Archivo Recepcionado!');
+        Session::flash('status', 'success');
+
+        return redirect()->back();
+    }
+
 }

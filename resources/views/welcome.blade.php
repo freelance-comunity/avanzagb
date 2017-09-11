@@ -80,7 +80,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                <img src="{{ asset('/img/logo_avanza.png') }}">
+                <img src="{{ asset('/img/logo_avanza.png') }}" class="img-responsive">
                     
                 </div>
 

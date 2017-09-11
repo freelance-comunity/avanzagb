@@ -19,6 +19,7 @@ class CreateAssignsTable extends Migration
             $table->text('reason');
             $table->date('date_assign');
             $table->date('return_date');
+            $table->string('status')->default('ENTREGADO');
             $table->integer('archive_id')->unsigned();
             $table->foreign('archive_id')->references('id')->on('archives');
             $table->timestamps();

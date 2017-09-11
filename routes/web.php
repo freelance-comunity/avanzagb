@@ -29,6 +29,8 @@ Route::post('/import-file', 'Admin\\ArchivesController@importFile');
 
 Route::get('/download/{id}', 'Admin\\ArchivesController@getDownload');
 
+Route::post('/returnArchive', 'Admin\\ArchivesController@returnArchive');
+
 Route::group(['middleware' => ['web']], function () {
 	Route::resource('admin/assigns', 'Admin\\AssignsController');
 });

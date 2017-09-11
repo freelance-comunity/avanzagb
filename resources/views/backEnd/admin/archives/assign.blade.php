@@ -17,9 +17,11 @@
             <input type="text" name="reason" placeholder="MOTIVO DE ASIGNACIÓN" class="form-control">
           </div>
           <div class="form-group">
+          <label for="date_assign">FECHA DE ENTREGA</label>
             <input type="date" name="date_assign" class="form-control">
           </div>
           <div class="form-group">
+          <label for="return_date">FECHA DE RECEPCIÓN</label>
             <input type="date" name="return_date" class="form-control">
           </div>
           <input type="hidden" name="archive_id" value="{{ $archive->id }}">
