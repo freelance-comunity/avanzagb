@@ -44,6 +44,10 @@ Route::get('api/archives', function(){
                 return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
             })->rawColumns(['actions'])
             ->make(true);       
+});
 
-	//return Datatables::eloquent(App\Archive::query())->make(true);
+Route::get('testCarbon', function(){
+	$now = Carbon\Carbon::today()->toDateString();
+
+	echo $now;
 });
