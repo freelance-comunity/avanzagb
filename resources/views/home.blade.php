@@ -106,19 +106,19 @@
         <table class="table table-bordered table-striped table-hover">
           <thead>
             <tr>
-              <th>NOMBRE A QUIEN SE ASIGNO</th>
-              <th>MOTIVO</th>
               <th>ID CLIENTE</th> 
               <th>ID CRÉDITO</th>
+              <th>NOMBRE A QUIEN SE ASIGNO</th>
+              <th>MOTIVO</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($archives as $archive)
             <tr class="info">
+              <td><a href="{{ url('admin/archives', $archive->id) }}">{{ $archive->client_id }}</a></td>
+              <td>{{ $archive->credit_id }}</td>
               <td>{{ $archive->assign['name'] }}</td>
               <td>{{ $archive->assign['reason'] }}</td>
-              <td>{{ $archive->client_id }}</td>
-              <td>{{ $archive->credit_id }}</td>
             </tr>
             @endforeach
           </tbody>    
@@ -131,19 +131,19 @@
         <table class="table table-bordered table-striped table-hover">
           <thead>
             <tr>
-              <th>NOMBRE A QUIEN SE ASIGNO</th>
-              <th>MOTIVO</th>
               <th>ID CLIENTE</th> 
               <th>ID CRÉDITO</th>
+              <th>NOMBRE A QUIEN SE ASIGNO</th>
+              <th>MOTIVO</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($assigns as $assign)
             <tr class="success">
+              <td><a href="{{ url('admin/archives', $assign->archive['id']) }}">{{ $assign->archive['client_id'] }}</a></td>
+              <td>{{ $assign->archive['credit_id'] }}</td>
               <td>{{ $assign->name }}</td>
               <td>{{ $assign->reason }}</td>
-              <td>{{ $assign->archive['client_id'] }}</td>
-              <td>{{ $assign->archive['credit_id'] }}</td>
             </tr>
             @endforeach
           </tbody>    
