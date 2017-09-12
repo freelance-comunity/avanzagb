@@ -37,7 +37,7 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::get('api/archives', function(){
 
-	$archives = App\Archive::select(['id', 'client_id', 'credit_id', 'group', 'status']);
+	$archives = App\Archive::select(['id', 'client_id', 'credit_id', 'group', 'status'])->orderBy('client_id');
 
 	return Datatables::of($archives)
             ->addColumn('actions', function ($archive) {
