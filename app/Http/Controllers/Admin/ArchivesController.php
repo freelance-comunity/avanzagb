@@ -241,7 +241,7 @@ class ArchivesController extends Controller
 
         return Datatables::of($archives)
         ->addColumn('actions', function ($archive) {
-            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+            return '<a href="admin/archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
         })->rawColumns(['actions'])
         ->make(true);  
     }
@@ -259,7 +259,7 @@ class ArchivesController extends Controller
 
         return Datatables::of($archives)
         ->addColumn('actions', function ($archive) {
-            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+            return '<a href="admin/archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
         })->rawColumns(['actions'])
         ->make(true);  
     }
@@ -277,7 +277,7 @@ class ArchivesController extends Controller
 
         return Datatables::of($archives)
         ->addColumn('actions', function ($archive) {
-            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+            return '<a href="admin/archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
         })->rawColumns(['actions'])
         ->make(true);  
     }
@@ -295,7 +295,7 @@ class ArchivesController extends Controller
 
         return Datatables::of($archives)
         ->addColumn('actions', function ($archive) {
-            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+            return '<a href="admin/archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
         })->rawColumns(['actions'])
         ->make(true);  
     }
@@ -313,7 +313,7 @@ class ArchivesController extends Controller
 
         return Datatables::of($archives)
         ->addColumn('actions', function ($archive) {
-            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+            return '<a href="admin/archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
         })->rawColumns(['actions'])
         ->make(true);  
     }
@@ -331,7 +331,7 @@ class ArchivesController extends Controller
 
         return Datatables::of($archives)
         ->addColumn('actions', function ($archive) {
-            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+            return '<a href="admin/archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
         })->rawColumns(['actions'])
         ->make(true);  
     }
@@ -349,7 +349,7 @@ class ArchivesController extends Controller
 
         return Datatables::of($archives)
         ->addColumn('actions', function ($archive) {
-            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+            return '<a href="admin/archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
         })->rawColumns(['actions'])
         ->make(true);  
     }
@@ -367,7 +367,7 @@ class ArchivesController extends Controller
 
         return Datatables::of($archives)
         ->addColumn('actions', function ($archive) {
-            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+            return '<a href="admin/archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
         })->rawColumns(['actions'])
         ->make(true);  
     }
