@@ -1,7 +1,7 @@
 @extends('backLayout.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
   @php
   $archives = App\Archive::all();
   $tuxtla = $archives->where('brach', 'TUXTLA');
@@ -35,7 +35,7 @@
           <div class="card-block">
             <h3 class="card-title">TUXTLA GUTIÉRREZ</h3>
 
-            <a href="#" class="btn btn-block btn-lg btn-warning">{{ $tuxtla->count() }}</a>
+            <a href="#" class="btn btn-block btn-lg btn-success">{{ $tuxtla->count() }}</a>
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
         <div class="card">
           <div class="card-block">
             <h3 class="card-title">SAN CRISTOBAL</h3>
-            <a href="#" class="btn btn-block btn-lg btn-warning">{{ $sc->count() }}</a>
+            <a href="#" class="btn btn-block btn-lg btn-success">{{ $sc->count() }}</a>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
         <div class="card">
           <div class="card-block">
             <h3 class="card-title">TABASCO</h3>
-            <a href="#" class="btn btn-block btn-lg btn-warning">{{ $tabasco->count() }}</a>
+            <a href="#" class="btn btn-block btn-lg btn-success">{{ $tabasco->count() }}</a>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
         <div class="card">
           <div class="card-block">
             <h3 class="card-title">TLAXCALA</h3>
-            <a href="#" class="btn btn-block btn-lg btn-warning">{{ $tlaxcala->count() }}</a>
+            <a href="#" class="btn btn-block btn-lg btn-success">{{ $tlaxcala->count() }}</a>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
         <div class="card">
           <div class="card-block">
             <h3 class="card-title">QUERETARO</h3>
-            <a href="#" class="btn btn-block btn-lg btn-warning">{{ $queretaro->count() }}</a>
+            <a href="#" class="btn btn-block btn-lg btn-success">{{ $queretaro->count() }}</a>
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@
         <div class="card">
           <div class="card-block">
             <h3 class="card-title">TULA</h3>
-            <a href="#" class="btn btn-block btn-lg btn-warning">{{ $tula->count() }}</a>
+            <a href="#" class="btn btn-block btn-lg btn-success">{{ $tula->count() }}</a>
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@
         <div class="card">
           <div class="card-block">
             <h3 class="card-title">MISANTLA</h3>
-            <a href="#" class="btn btn-block btn-lg btn-warning">{{ $misantla->count() }}</a>
+            <a href="#" class="btn btn-block btn-lg btn-success">{{ $misantla->count() }}</a>
           </div>
         </div>
       </div>

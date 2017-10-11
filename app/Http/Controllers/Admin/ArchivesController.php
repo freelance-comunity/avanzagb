@@ -216,4 +216,160 @@ class ArchivesController extends Controller
         return redirect()->back();
     }
 
+    public function apiArchives()
+    {
+        $collection = Archive::select(['id', 'client_id', 'credit_id', 'group', 'status','source_of_funding'])->orderBy('client_id');
+
+        $archives = $collection;
+
+        return Datatables::of($archives)
+        ->addColumn('actions', function ($archive) {
+            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+        })->rawColumns(['actions'])
+        ->make(true);    
+    }
+    public function returnFinafim()
+    {
+         return view('backEnd.admin.archives.finafim');
+    }
+
+    public function finafim()
+    {
+        $collection = Archive::select(['id', 'client_id', 'credit_id', 'group', 'status','source_of_funding','brach'])->orderBy('client_id');
+
+        $archives = $collection->where('source_of_funding', 'FINAFIM');
+
+        return Datatables::of($archives)
+        ->addColumn('actions', function ($archive) {
+            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+        })->rawColumns(['actions'])
+        ->make(true);  
+    }
+
+    public function returnFommur()
+    {
+         return view('backEnd.admin.archives.fommur');
+    }
+
+    public function fommur()
+    {
+        $collection = Archive::select(['id', 'client_id', 'credit_id', 'group', 'status','source_of_funding', 'brach'])->orderBy('client_id');
+
+        $archives = $collection->where('source_of_funding', 'FOMMUR');
+
+        return Datatables::of($archives)
+        ->addColumn('actions', function ($archive) {
+            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+        })->rawColumns(['actions'])
+        ->make(true);  
+    }
+
+    public function returnAbc1()
+    {
+         return view('backEnd.admin.archives.abc1');
+    }
+
+    public function abc1()
+    {
+        $collection = Archive::select(['id', 'client_id', 'credit_id', 'group', 'status','source_of_funding', 'brach'])->orderBy('client_id');
+
+        $archives = $collection->where('source_of_funding', 'ABC CAPITAL LINEA 1');
+
+        return Datatables::of($archives)
+        ->addColumn('actions', function ($archive) {
+            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+        })->rawColumns(['actions'])
+        ->make(true);  
+    }
+
+    public function returnAbc2()
+    {
+         return view('backEnd.admin.archives.abc2');
+    }
+
+    public function abc2()
+    {
+        $collection = Archive::select(['id', 'client_id', 'credit_id', 'group', 'status','source_of_funding','brach'])->orderBy('client_id');
+
+        $archives = $collection->where('source_of_funding', 'ABC CAPITAL LINEA 2');
+
+        return Datatables::of($archives)
+        ->addColumn('actions', function ($archive) {
+            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+        })->rawColumns(['actions'])
+        ->make(true);  
+    }
+
+    public function returnSof()
+    {
+         return view('backEnd.admin.archives.sof');
+    }
+
+    public function sof()
+    {
+        $collection = Archive::select(['id', 'client_id', 'credit_id', 'group', 'status','source_of_funding','brach'])->orderBy('client_id');
+
+        $archives = $collection->where('source_of_funding', 'OTRO RECURSOS SFO');
+
+        return Datatables::of($archives)
+        ->addColumn('actions', function ($archive) {
+            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+        })->rawColumns(['actions'])
+        ->make(true);  
+    }
+
+    public function returnSofsc()
+    {
+         return view('backEnd.admin.archives.sofsc');
+    }
+
+    public function sofsc()
+    {
+        $collection = Archive::select(['id', 'client_id', 'credit_id', 'group', 'status','source_of_funding','brach'])->orderBy('client_id');
+
+        $archives = $collection->where('source_of_funding', 'FOMMUR SFO');
+
+        return Datatables::of($archives)
+        ->addColumn('actions', function ($archive) {
+            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+        })->rawColumns(['actions'])
+        ->make(true);  
+    }
+
+    public function returnSoffin()
+    {
+         return view('backEnd.admin.archives.soffin');
+    }
+
+    public function soffin()
+    {
+        $collection = Archive::select(['id', 'client_id', 'credit_id', 'group', 'status','source_of_funding','brach'])->orderBy('client_id');
+
+        $archives = $collection->where('source_of_funding', 'OTROS RECURSOS SFI');
+
+        return Datatables::of($archives)
+        ->addColumn('actions', function ($archive) {
+            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+        })->rawColumns(['actions'])
+        ->make(true);  
+    }
+
+    public function returnLegales()
+    {
+         return view('backEnd.admin.archives.legales');
+    }
+
+    public function legales()
+    {
+        $collection = Archive::select(['id', 'client_id', 'credit_id', 'group', 'status','source_of_funding','brach'])->orderBy('client_id');
+
+        $archives = $collection->where('source_of_funding', 'LEGALES');
+
+        return Datatables::of($archives)
+        ->addColumn('actions', function ($archive) {
+            return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+        })->rawColumns(['actions'])
+        ->make(true);  
+    }
+
 }

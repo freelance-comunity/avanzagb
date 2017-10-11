@@ -35,16 +35,37 @@ Route::group(['middleware' => ['web']], function () {
 	Route::resource('admin/assigns', 'Admin\\AssignsController');
 });
 
-Route::get('api/archives', function(){
+// Route::get('api/archives', function(){
 
-	$archives = App\Archive::select(['id', 'client_id', 'credit_id', 'group', 'status'])->orderBy('client_id');
+// 	$collection = App\Archive::select(['id', 'client_id', 'credit_id', 'group', 'status','source_of_funding'])->orderBy('client_id');
 
-	return Datatables::of($archives)
-            ->addColumn('actions', function ($archive) {
-                return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
-            })->rawColumns(['actions'])
-            ->make(true);       
-});
+// 	$archives = $collection;
+
+// 	return Datatables::of($archives)
+//             ->addColumn('actions', function ($archive) {
+//                 return '<a href="archives/'.$archive->id.'" class="btn btn-block btn-xs btn-primary"><i class="fa fa-eye"></i>VER</a>';
+//             })->rawColumns(['actions'])
+//             ->make(true);       
+// });
+
+Route::get('api/archives','Admin\\ArchivesController@apiArchives');
+Route::get('returnFinafim','Admin\\ArchivesController@returnFinafim');
+Route::get('api/finafim','Admin\\ArchivesController@finafim');
+Route::get('returnFommur','Admin\\ArchivesController@returnFommur');
+Route::get('api/fommur', 'Admin\\ArchivesController@fommur');
+Route::get('returnAbc1', 'Admin\\ArchivesController@returnAbc1');
+Route::get('api/abc1', 'Admin\\ArchivesController@abc1');
+Route::get('returnAbc2', 'Admin\\ArchivesController@returnAbc2');
+Route::get('api/abc2', 'Admin\\ArchivesController@abc2');
+Route::get('returnSof', 'Admin\\ArchivesController@returnSof');
+Route::get('api/sof', 'Admin\\ArchivesController@sof');
+Route::get('returnSofsc', 'Admin\\ArchivesController@returnSofsc');
+Route::get('api/sofsc', 'Admin\\ArchivesController@sofsc');
+Route::get('returnFin', 'Admin\\ArchivesController@returnSoffin');
+Route::get('api/sofin', 'Admin\\ArchivesController@soffin');
+Route::get('returnLegales', 'Admin\\ArchivesController@returnLegales');
+Route::get('api/legales', 'Admin\\ArchivesController@legales');
+
 
 Route::get('testCarbon', function(){
 	$now = Carbon\Carbon::today()->toDateString();
