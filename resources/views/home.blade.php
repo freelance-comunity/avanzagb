@@ -33,6 +33,44 @@
       <div class="col-sm-3">
         <div class="card">
           <div class="card-block">
+            <h3 class="card-title">FINAFIM</h3>
+
+            <a href="#" class="btn btn-block btn-lg btn-warning">{{ number_format(1283) }}</a>
+          </div>
+        </div>
+      </div>
+       <div class="col-sm-3">
+        <div class="card">
+          <div class="card-block">
+            <h3 class="card-title">FOMMUR</h3>
+
+            <a href="#" class="btn btn-block btn-lg btn-info">{{ number_format(1402) }}</a>
+          </div>
+        </div>
+      </div>
+       <div class="col-sm-3">
+        <div class="card">
+          <div class="card-block">
+            <h3 class="card-title">ABC CAPITAL LINEA 1</h3>
+
+            <a href="#" class="btn btn-block btn-lg btn-success">{{ number_format(327) }}</a>
+          </div>
+        </div>
+      </div>
+        <div class="col-sm-3">
+        <div class="card">
+          <div class="card-block">
+            <h3 class="card-title">ABC CAPITAL LINEA 2</h3>
+
+            <a href="#" class="btn btn-block btn-lg btn-primary">{{ number_format(557) }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+   {{--  <div class="row">
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-block">
             <h3 class="card-title">TUXTLA GUTIÉRREZ</h3>
 
             <a href="#" class="btn btn-block btn-lg btn-success">{{ $tuxtla->count() }}</a>
@@ -87,7 +125,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
   </div>
   <hr>
   <div class="row">
