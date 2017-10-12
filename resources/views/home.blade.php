@@ -24,7 +24,7 @@
           </div>
           @endif
           <!--<img src="{{ asset('/img/avanza.png') }}" class="img-responsive" alt="">-->
-          <h3>TOTAL DE EXPEDIENTES: {{ number_format(3569) }}</h3>
+          <h3>TOTAL DE EXPEDIENTES: {{ number_format(5317) }}</h3>
         </div>
 
       </div>
@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-       <div class="col-sm-3">
+      <div class="col-sm-3">
         <div class="card">
           <div class="card-block">
             <h3 class="card-title">FOMMUR</h3>
@@ -48,7 +48,7 @@
           </div>
         </div>
       </div>
-       <div class="col-sm-3">
+      <div class="col-sm-3">
         <div class="card">
           <div class="card-block">
             <h3 class="card-title">ABC CAPITAL LINEA 1</h3>
@@ -57,12 +57,21 @@
           </div>
         </div>
       </div>
-        <div class="col-sm-3">
+      <div class="col-sm-3">
         <div class="card">
           <div class="card-block">
             <h3 class="card-title">ABC CAPITAL LINEA 2</h3>
 
             <a href="#" class="btn btn-block btn-lg btn-primary">{{ number_format(557) }}</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-block">
+            <h3 class="card-title">RP</h3>
+
+            <a href="#" class="btn btn-block btn-lg btn-danger">{{ number_format(1748) }}</a>
           </div>
         </div>
       </div>
