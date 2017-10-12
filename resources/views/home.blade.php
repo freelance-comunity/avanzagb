@@ -24,7 +24,7 @@
           </div>
           @endif
           <!--<img src="{{ asset('/img/avanza.png') }}" class="img-responsive" alt="">-->
-          <h3>TOTAL DE EXPEDIENTES: {{ $archives->count() }}</h3>
+          <h3>TOTAL DE EXPEDIENTES: {{ number_format(3569) }}</h3>
         </div>
 
       </div>
